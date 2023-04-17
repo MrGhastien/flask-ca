@@ -12,9 +12,12 @@ On the homepage, you can add a new task and see all that you added. By clicking 
 On the 'Agenda' page, you can see tasks for which the deadline is in three days or less, as well as the tasks you scheduled for the day.
 
 * Screenshots
+*** Main page
 [[https://raw.githubusercontent.com/MrGhastien/flask-ca/main/images/1.png]]
 [[https://raw.githubusercontent.com/MrGhastien/flask-ca/main/images/2.png]]
+*** Task details
 [[https://raw.githubusercontent.com/MrGhastien/flask-ca/main/images/3.png]]
 [[https://raw.githubusercontent.com/MrGhastien/flask-ca/main/images/4.png]]
 [[https://raw.githubusercontent.com/MrGhastien/flask-ca/main/images/5.png]]
+*** Agenda
 [[https://raw.githubusercontent.com/MrGhastien/flask-ca/main/images/6.png]]
