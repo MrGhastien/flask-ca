@@ -1,0 +1,20 @@
+.todo {
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    transition-duration: 0.2s;
+}
+
+
+.todo:hover {
+    box-shadow: 5px 5px #80808050;
+    transform: translate(-5px, -5px);
+}
+
+#task-list {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1600px;
+}

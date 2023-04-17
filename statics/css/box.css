@@ -1,0 +1,47 @@
+.box {
+    margin: -50px auto 50px;
+    border-radius: 5px;
+    width: 50%;
+    background-color: white;
+}
+
+section > .box {
+    margin: -82px auto 50px;
+}
+
+.box > div {
+    padding: 15px;
+    border: 1px solid lightgray;
+    border-radius: 0;
+    border-bottom: none;
+}
+
+.box > div.box-header {
+    font-size: 28px;
+    text-align: center;
+    font-weight: 700;
+    color: #08086d;
+    border-radius: 5px 5px 0 0;
+}
+
+.box > div:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.box > div:last-child {
+    border-bottom: 1px solid lightgray;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.box .label {
+    color: #bbbfc5;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.box .field {
+    margin-bottom: 10px;
+}

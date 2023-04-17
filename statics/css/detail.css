@@ -1,0 +1,15 @@
+header section {
+    margin: 0 auto 0;
+    width: 100%;
+    max-width: 74rem;
+    font-weight: 700;
+    font-size: 48px;
+    background: linear-gradient(to left, rgba(0,84,255,1) 0%, rgba(0,212,255,1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.delete-button {
+
+}

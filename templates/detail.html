@@ -1,0 +1,49 @@
+{% extends './base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/css/detail.css">
+    <link rel="stylesheet" href="/css/box.css">
+{% endblock %}
+
+{% block header %}
+    <section>
+        Task information
+    </section>
+{% endblock %}
+
+{% block main %}
+    <div class="box">
+        <div class="box-header">
+            Task '{{ task.content }}'
+        </div>
+        <div>
+            <div class="field">
+                <span class="label">task id</span><br>
+                {{ task._id }}
+            </div>
+            <div class="field">
+                <span class="label">Priority</span><br>
+                {{ parseDegree(task.degree).name }}
+            </div>
+            {% if task.deadline %}
+                <div class="field">
+                    <span class="label">deadline</span><br>
+                    <span class="format-date">{{ task.deadline }}</span>
+                </div>
+            {% endif %}
+            {% if task.schedule %}
+                <div class="field">
+                    <span class="label">scheduled</span><br>
+                    <span class="format-date">{{ task.schedule }}</span>
+                </div>
+            {% endif %}
+        </div>
+        <div>
+            <form method="POST" action="{{ url_for('delete', id=task._id) }}" >
+                <input class="delete-button" type="submit" value="Delete Todo"
+                       onclick="return confirm('Are you sure you want to delete this entry?')">
+            </form>
+        </div>
+    </div>
+    <script src="/js/date-format.js"></script>
+{% endblock %}

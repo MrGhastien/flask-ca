@@ -1,0 +1,68 @@
+{% extends './base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/css/box.css">
+    <link rel="stylesheet" href="/css/list.css">
+{% endblock %}
+
+{% block main %}
+    <section>
+        <div class="box">
+            <div>
+                <form method="post">
+                    <p>
+                        <b><label for="content">Todo content</label></b>
+                    </p>
+                    <p>
+                        <input type="text" name="content"
+                               placeholder="Todo Content">
+                    </p>
+
+                    <p>
+                        <b><label for="degree">Degree</label></b>
+                    </p>
+                    <p>
+                        <select id="degree" name="degree">
+                            {% for deg in degrees %}
+                                <option value="{{ deg.symbol }}">{{ deg.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </p>
+                    <p>
+                        <input class="datecheck" id="deadline" name="deadline" type="checkbox">
+                        <label for="deadline">Deadline</label><br>
+                        <input type="datetime-local" name="deadline-date" id="deadline-date">
+                    </p>
+                    <p>
+                        <input class="datecheck" id="schedule" name="schedule" type="checkbox">
+                        <label for="schedule">Schedule</label><br>
+                        <input type="datetime-local" name="schedule-date" id="schedule-date">
+                    </p>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section>
+        <div id="task-list">
+            {% for todo in todos %}
+                <a class="hidden-link" href="{{ url_for('detail', id=todo['_id']) }}">
+                    <div class="todo">
+
+                        <p><b>{{ todo['content'] }} <i>({{ parseDegree(todo['degree']).name }})</i></b></p>
+                        {% if todo['deadline'] %}
+                            <span>Deadline : <span class="format-date">{{ todo['deadline'] }}</span></span>
+                            <br>
+                        {% endif %}
+                        {% if todo['schedule'] %}
+                            <span>Scheduled : <span class="format-date">{{ todo['schedule'] }}</span></span>
+                        {% endif %}
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+    <script src="/js/index.js"></script>
+    <script src="/js/date-format.js"></script>
+{% endblock main %}
