@@ -15,14 +15,21 @@ header, nav {
     padding: 15px;
 }
 
-nav h1.logo {
-    font-size: 48px;
+nav {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    vertical-align: center;
+    padding: 8px;
 }
+
+
 
 header {
     padding: 75px;
     height: 100px;
-    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    background: linear-gradient(45deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
 }
 
 h1.logo {
@@ -35,6 +42,9 @@ h1.logo {
     font-weight: 900;
 }
 
+nav h1.logo {
+    font-size: 48px;
+}
 
 main {
     margin: 0;
@@ -56,12 +66,17 @@ button, input[type="submit"] {
     color: white;
     transition-duration: 0.2s;
     box-shadow: 0 0 #0072ff50;
+    cursor: pointer;
 }
 
 button:hover, input[type="submit"]:hover {
-    cursor: pointer;
-    transform: translateY(-3px);
-    box-shadow: 0 3px #0072ff50;
+    transform: translate(-3px, -3px);
+    box-shadow: 3px 3px #0072ff50;
+}
+
+button:active, input[type="submit"]:active {
+    transform: none;
+    box-shadow: 0 0 #0072ff50;
 }
 
 input[type="text"], input[type="datetime-local"] {
@@ -105,7 +120,19 @@ footer {
 
 footer > div {
     padding-top: 50px;
-	width: 100%;
-	max-width: 76rem;
-	margin: 0 auto;
+    width: 100%;
+    max-width: 76rem;
+    margin: 0 auto;
+}
+
+.overdue {
+    color: #fb4934;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.missed {
+    color: #fe8019;
+    font-style: italic;
+    font-weight: 600;
 }

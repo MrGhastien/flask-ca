@@ -10,6 +10,20 @@ header section {
     -webkit-text-fill-color: transparent;
 }
 
-.delete-button {
+.status-todo {
+    color: #fb4934;
+    font-weight: 500;
+}
 
+.status-done {
+    color: #29c41c;
+    font-weight: 500;
+}
+
+.box .button-container {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    vertical-align: center;
 }

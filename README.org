@@ -1,0 +1,14 @@
+#+TITLE: Dorset Flask & MongoDB Assignment
+#+AUTHOR: Bastien Morino
+
+* Synopsis
+This small app allows you to create and organize tasks.
+Each task has a content text or name associated to it, as well as a degree of importance.
+
+You can also add deadlines and schedule dates.
+
+On the homepage, you can add a new task and see all that you added. By clicking on a specific task, you can see detailed information about it and delete it.
+
+On the 'Agenda' page, you can see tasks for which the deadline is in three days or less, as well as the tasks you scheduled for the day.
+
+* Screenshots

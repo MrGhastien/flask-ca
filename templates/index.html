@@ -50,14 +50,28 @@
                 <a class="hidden-link" href="{{ url_for('detail', id=todo['_id']) }}">
                     <div class="todo">
 
-                        <p><b>{{ todo['content'] }} <i>({{ parseDegree(todo['degree']).name }})</i></b></p>
+                        <p><b>{{ todo['content'] }}
+                            {% if todo['done'] %}
+                                <span class="status-done">(Done)</span>
+                            {% else %}
+                                <i>({{ parseDegree(todo['degree']).name }})</i>
+                            {% endif %}
+                        </b></p>
                         {% if todo['deadline'] %}
-                            <span>Deadline : <span class="format-date">{{ todo['deadline'] }}</span></span>
-                            <br>
-                        {% endif %}
-                        {% if todo['schedule'] %}
-                            <span>Scheduled : <span class="format-date">{{ todo['schedule'] }}</span></span>
-                        {% endif %}
+                                <span>Deadline : {{ todo['deadline-diff'] }}<span
+                                        class="format-date">{{ todo['deadline'] }}</span></span>
+                                {% if todo['overdue'] and not todo['done'] %}
+                                    <span class="overdue">(Overdue)</span>
+                                {% endif %}
+                                <br>
+                            {% endif %}
+                            {% if todo['schedule'] %}
+                                <span>Scheduled : {{ todo['schedule-diff'] }}<span
+                                        class="format-date">{{ todo['schedule'] }}</span></span>
+                                {% if todo['missed'] and not todo['done'] %}
+                                    <span class="missed">(Missed)</span>
+                                {% endif %}
+                            {% endif %}
                     </div>
                 </a>
             {% endfor %}

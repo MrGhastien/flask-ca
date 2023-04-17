@@ -1,0 +1,75 @@
+{% extends './base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/css/detail.css">
+    <link rel="stylesheet" href="/css/box.css">
+    <link rel="stylesheet" href="/css/list.css">
+{% endblock %}
+
+{% block header %}
+    <section>
+        Agenda
+    </section>
+{% endblock %}
+
+{% block main %}
+    <div class="box">
+        <div class="box-header">
+            Tasks for today
+        </div>
+        <div>
+            <h4>Approaching deadlines</h4>
+            <div id="task-list">
+                {% for todo in deadlines %}
+                    <a class="hidden-link" href="{{ url_for('detail', id=todo['_id']) }}">
+                        <div class="todo">
+
+                            <p><b>{{ todo['content'] }} <i>({{ parseDegree(todo['degree']).name }})</i></b></p>
+                            {% if todo['deadline'] %}
+                                <span>Deadline : {{ todo['deadline-diff'] }}<span
+                                        class="format-date">{{ todo['deadline'] }}</span></span>
+                                {% if todo['overdue'] %}
+                                    <span class="overdue">(Overdue)</span>
+                                {% endif %}
+                                <br>
+                            {% endif %}
+                            {% if todo['schedule'] %}
+                                <span>Scheduled : {{ todo['schedule-diff'] }}<span
+                                        class="format-date">{{ todo['schedule'] }}</span></span>
+                                {% if todo['missed'] %}
+                                    <span class="missed">(Missed)</span>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+            <h4>Scheduled tasks</h4>
+            <div class="task-list">
+                {% for todo in schedules %}
+                    <a class="hidden-link" href="{{ url_for('detail', id=todo['_id']) }}">
+                        <div class="todo">
+                            <p><b>{{ todo['content'] }} <i>({{ parseDegree(todo['degree']).name }})</i></b></p>
+                            {% if todo['deadline'] %}
+                                <span>Deadline : {{ todo['deadline-diff'] }}<span
+                                        class="format-date">{{ todo['deadline'] }}</span></span>
+                                {% if todo['overdue'] %}
+                                    <span class="overdue">(Overdue)</span>
+                                {% endif %}
+                                <br>
+                            {% endif %}
+                            {% if todo['schedule'] %}
+                                <span>Scheduled : {{ todo['schedule-diff'] }}<span
+                                        class="format-date">{{ todo['schedule'] }}</span></span>
+                                {% if todo['missed'] %}
+                                    <span class="missed">(Missed)</span>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script src="/js/date-format.js"></script>
+{% endblock %}

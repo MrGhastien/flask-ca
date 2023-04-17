@@ -18,3 +18,8 @@
     margin-right: auto;
     max-width: 1600px;
 }
+
+.status-done {
+    color: #29c41c;
+    font-style: italic;
+}

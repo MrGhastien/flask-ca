@@ -7,6 +7,9 @@ class Degree:
         self.name = name
 
 
+# A degree as a symbol and a name.
+# The symbol is the data received when we create a task,
+# and the name is displayed on the webpage.
 degrees = [
     Degree('a', "Critical"),
     Degree('b', "Important"),
@@ -14,6 +17,7 @@ degrees = [
 ]
 
 
+# This function returns a Degree object from the given symbol
 def parse(symbol):
     for deg in degrees:
         if deg.symbol == symbol:
